@@ -1,0 +1,31 @@
+[MASTER]
+
+# Specify the Python version
+python=3.8
+
+[MESSAGES CONTROL]
+
+# Disable messages not relevant to this project
+disable=C0116,C0103
+
+# Set maximum line length to 100 characters
+max-line-length=100
+
+# Set the maximum number of arguments for functions and methods to 5
+max-args=5
+
+# Set the maximum number of lines in a function to 25
+max-lines=25
+
+# Set the minimum number of public methods in a class to 1
+min-public-methods=1
+
+[REPORTS]
+
+# Output messages in a format suited to GitHub Actions
+msg-template={path}:{line}:{column}: {msg_id}: {msg}
+
+[FORMAT]
+
+# Output colored text
+color=yes
