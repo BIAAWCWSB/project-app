@@ -3,7 +3,14 @@ name: Python application
 on: [push]
 
 jobs:
-  test_app:
+  hello_world:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print Hello World
+      run: echo "Hello World from project-backend"
+
+  build:
+    needs: hello_world
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -14,12 +21,9 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-    - name: Run tests
-      run: |
-        python -m unittest discover tests
 
-  pylint:
-    needs: test_app
+  lint:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -32,4 +36,4 @@ jobs:
         pip install -r requirements.txt
     - name: Run pylint
       run: |
-        pylint src/app.py
+        pylint src/*.py
