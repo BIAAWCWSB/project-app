@@ -15,5 +15,10 @@ class TestApp(unittest.TestCase):
         response = self.client.get('/hello')
         self.assertEqual(response.status_code, 200)
 
+    def test_hello_post(self):
+        response = self.client.post('/hello', data=dict(name='John'))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"Hello, John!", response.data)
+
 if __name__ == '__main__':
     unittest.main()
