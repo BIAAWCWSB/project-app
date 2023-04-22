@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Hello Form</title>
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
     <h1>Hello Form</h1>
@@ -10,5 +11,6 @@
       <input type="text" id="name" name="name" required>
       <button type="submit">Submit</button>
     </form>
+    {% block content %}{% endblock %}
   </body>
 </html>
